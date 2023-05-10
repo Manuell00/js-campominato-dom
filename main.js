@@ -16,6 +16,7 @@
 const gridElement = document.getElementById("grid")
 const button = document.getElementById("playButton")
 let mioArray = createOrderArray(1, 101)
+let contatore = 0
 
 button.addEventListener("click", clearBox)
 button.addEventListener("click", chooseDifficult)
@@ -88,13 +89,39 @@ function generateSquare() {
             square.append(newSpan)
 
 
-            // Associarel'evento allo square
-            square.addEventListener("click",
-                function () {
-                    this.classList.add("clicked-true")
-                    console.log(`È stata colorata la cella numero  ${mioArray[i]}`)
-                }
-            );
+          // Associarel'evento allo square
+          square.addEventListener("click",
+          function () {
+              
+              console.log(contatore)
+          
+              this.classList.add("clicked-true")
+
+              const span = this.querySelector('span');
+
+              // Ottieni il valore interno dello span
+              const valore = span.textContent;
+              
+      
+              if (valore != "bomba") {
+                  contatore++
+                  console.log(`COMPLIMENTI, è stata colorata la cella ${mioArray[i]}, puoi proseguire il gioco`)
+              }
+
+              else{
+                  alert(`Mi dispiace hai perso, il tuo punteggio finale è ${contatore}`)
+                  contatore=0
+
+                 const divs =  document.querySelectorAll("div.square-easy.clicked-true")
+                 console.log(divs)
+
+                 divs.forEach(function(div) {
+                  div.classList.remove('clicked-true');
+                 })
+                  
+              }
+          }
+      );
 
             gridElement.append(square)
         }
@@ -118,8 +145,34 @@ function generateSquare() {
             // Associarel'evento allo square
             square.addEventListener("click",
                 function () {
+                    
+                    console.log(contatore)
+                
                     this.classList.add("clicked-true")
-                    console.log(`È stata colorata la cella numero  ${mioArray[i]}`)
+
+                    const span = this.querySelector('span');
+    
+                    // Ottieni il valore interno dello span
+                    const valore = span.textContent;
+                    
+            
+                    if (valore != "bomba") {
+                        contatore++
+                        console.log(`COMPLIMENTI, è stata colorata la cella ${mioArray[i]}, puoi proseguire il gioco`)
+                    }
+
+                    else{
+                        alert(`Mi dispiace hai perso, il tuo punteggio finale è ${contatore}`)
+                        contatore=0
+
+                       const divs =  document.querySelectorAll("div.square-medium.clicked-true")
+                       console.log(divs)
+
+                       divs.forEach(function(div) {
+                        div.classList.remove('clicked-true');
+                       })
+                        
+                    }
                 }
             );
 
@@ -141,7 +194,7 @@ function generateSquare() {
             newSpan.append(mioArray[i]);
             square.append(newSpan)
 
-            let contatore = 0
+            
 
             // Associarel'evento allo square
             square.addEventListener("click",
@@ -159,13 +212,19 @@ function generateSquare() {
             
                     if (valore != "bomba") {
                         contatore++
-                        console.log(contatore)
-                        console.log(`È stata colorata la cella numero  ${mioArray[i]}`)
+                        console.log(`COMPLIMENTI, è stata colorata la cella ${mioArray[i]}, puoi proseguire il gioco`)
                     }
 
                     else{
-                        alert(`Mi dispiace hai perso, il tuo punteggio ${contatore}`)
+                        alert(`Mi dispiace hai perso, il tuo punteggio finale è ${contatore}`)
                         contatore=0
+
+                       const divs =  document.querySelectorAll("div.square-hard.clicked-true")
+                       console.log(divs)
+
+                       divs.forEach(function(div) {
+                        div.classList.remove('clicked-true');
+                       })
                         
                     }
                 }
