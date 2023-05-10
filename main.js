@@ -50,16 +50,16 @@ function createOrderArray(min, max) {
         let random = intArr[randomNumMinMax(min, max)]
 
         if (random !== "bomba") {
-            intArr.splice(random, 1,"bomba")
+            intArr.splice(random, 1, "bomba")
         }
 
         else {
             i--
-        } 
+        }
     }
 
     return intArr;
-    
+
 }
 
 
@@ -75,6 +75,7 @@ function generateSquare() {
         alert("Attento non hai scelto la difficoltà")
     }
 
+    // EASY
     // Inserisco la casistica per cui il gioco sia "easy"
     else if (difficult === "easy") {
 
@@ -89,45 +90,45 @@ function generateSquare() {
             square.append(newSpan)
 
 
-          // Associarel'evento allo square
-          square.addEventListener("click",
-          function () {
-              
-              console.log(contatore)
-          
-              this.classList.add("clicked-true")
+            // Associarel'evento allo square
+            square.addEventListener("click",
+                function () {
 
-              const span = this.querySelector('span');
 
-              // Ottieni il valore interno dello span
-              const valore = span.textContent;
-              
-      
-              if (valore != "bomba") {
-                  contatore++
-                  console.log(`COMPLIMENTI, è stata colorata la cella ${mioArray[i]}, puoi proseguire il gioco`)
-              }
 
-              else{
-                  alert(`Mi dispiace hai perso, il tuo punteggio finale è ${contatore}`)
-                  contatore=0
+                    this.classList.add("clicked-true")
 
-                 const divs =  document.querySelectorAll("div.square-easy.clicked-true")
-                 console.log(divs)
+                    const span = this.querySelector('span');
 
-                 divs.forEach(function(div) {
-                  div.classList.remove('clicked-true');
-                 })
-                  
-              }
-          }
-      );
+                    // Ottieni il valore interno dello span
+                    const valore = span.textContent;
+
+
+                    if (valore != "bomba") {
+                        contatore++
+                        console.log(`COMPLIMENTI, è stata colorata la cella ${mioArray[i]}, puoi proseguire il gioco`)
+                    }
+
+                    else {
+                        alert(`Mi dispiace hai perso, il tuo punteggio finale è ${contatore}`)
+                        contatore = 0
+
+                        const divs = document.querySelectorAll("div.square-easy.clicked-true")
+
+                        divs.forEach(function (div) {
+                            div.classList.remove('clicked-true');
+                        })
+
+                    }
+                }
+            );
 
             gridElement.append(square)
         }
 
     }
 
+    // MEDIUM
     // Inserisco la casistica per cui il gioco sia "medium"
     else if (difficult === "medium") {
 
@@ -142,36 +143,35 @@ function generateSquare() {
             square.append(newSpan)
 
 
+
             // Associarel'evento allo square
             square.addEventListener("click",
                 function () {
-                    
-                    console.log(contatore)
-                
+
                     this.classList.add("clicked-true")
 
                     const span = this.querySelector('span');
-    
+
                     // Ottieni il valore interno dello span
                     const valore = span.textContent;
-                    
-            
+
+
                     if (valore != "bomba") {
                         contatore++
                         console.log(`COMPLIMENTI, è stata colorata la cella ${mioArray[i]}, puoi proseguire il gioco`)
                     }
 
-                    else{
+                    else {
+            
                         alert(`Mi dispiace hai perso, il tuo punteggio finale è ${contatore}`)
-                        contatore=0
+                        contatore = 0
 
-                       const divs =  document.querySelectorAll("div.square-medium.clicked-true")
-                       console.log(divs)
+                        const divs = document.querySelectorAll("div.square-medium.clicked-true")
 
-                       divs.forEach(function(div) {
-                        div.classList.remove('clicked-true');
-                       })
-                        
+                        divs.forEach(function (div) {
+                            div.classList.remove('clicked-true');
+                        })
+
                     }
                 }
             );
@@ -181,6 +181,7 @@ function generateSquare() {
 
     }
 
+    // HARD
     // Inserisco la casistica per cui il gioco sia "hard"
     else {
 
@@ -194,38 +195,37 @@ function generateSquare() {
             newSpan.append(mioArray[i]);
             square.append(newSpan)
 
-            
+
 
             // Associarel'evento allo square
             square.addEventListener("click",
                 function () {
-                    
-                    console.log(contatore)
-                
+
+
+
                     this.classList.add("clicked-true")
 
                     const span = this.querySelector('span');
-    
+
                     // Ottieni il valore interno dello span
                     const valore = span.textContent;
-                    
-            
+
+
                     if (valore != "bomba") {
                         contatore++
                         console.log(`COMPLIMENTI, è stata colorata la cella ${mioArray[i]}, puoi proseguire il gioco`)
                     }
 
-                    else{
+                    else {
                         alert(`Mi dispiace hai perso, il tuo punteggio finale è ${contatore}`)
-                        contatore=0
+                        contatore = 0
 
-                       const divs =  document.querySelectorAll("div.square-hard.clicked-true")
-                       console.log(divs)
+                        const divs = document.querySelectorAll("div.square-hard.clicked-true")
 
-                       divs.forEach(function(div) {
-                        div.classList.remove('clicked-true');
-                       })
-                        
+                        divs.forEach(function (div) {
+                            div.classList.remove('clicked-true');
+                        })
+
                     }
                 }
             );
@@ -258,9 +258,7 @@ function chooseDifficult() {
 
 
 // Creo una funzione per pulire il container
-
-function clearBox()
-{
+function clearBox() {
     document.getElementById("grid").innerHTML = "";
 }
 
@@ -269,5 +267,4 @@ function randomNumMinMax(numMin, numMax) {
     return Math.floor(Math.random() * (numMax - numMin + 1) + numMin)
 }
 
-console.log(randomNumMinMax(1,101))
 
