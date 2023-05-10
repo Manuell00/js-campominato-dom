@@ -54,11 +54,11 @@ function createOrderArray(min, max) {
 
         else {
             i--
-        }
-        
+        } 
     }
 
     return intArr;
+    
 }
 
 
@@ -92,7 +92,6 @@ function generateSquare() {
             square.addEventListener("click",
                 function () {
                     this.classList.add("clicked-true")
-                    this.firstchild.classList.add("visible")
                     console.log(`È stata colorata la cella numero  ${mioArray[i]}`)
                 }
             );

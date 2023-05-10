@@ -110,6 +110,10 @@ main{
     display: none;
 }
 
+.clicked-true span{
+    display: block !important;
+}
+
 
 /* FOOTER */
 footer{
