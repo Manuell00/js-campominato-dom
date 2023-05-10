@@ -63,7 +63,7 @@ main{
     align-items: center;
     justify-content: center;
     float: left;
-    width: calc(100% / 7);
+    width: calc(100% / 10);
     height: 50px;
     border: 1px solid black;
     cursor: pointer;
@@ -85,7 +85,7 @@ main{
     align-items: center;
     justify-content: center;
     float: left;
-    width: calc(100% / 10);
+    width: calc(100% / 7);
     height: 50px;
     border: 1px solid black;
     cursor: pointer;
@@ -104,6 +104,10 @@ main{
 #colButton{
     display: flex;
     justify-content: space-between;
+}
+
+#grid span{
+    display: none;
 }
 
 
