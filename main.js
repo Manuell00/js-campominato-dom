@@ -142,20 +142,32 @@ function generateSquare() {
             square.append(newSpan)
 
             let contatore = 0
+
             // Associarel'evento allo square
             square.addEventListener("click",
                 function () {
+                    
+                    console.log(contatore)
+                
                     this.classList.add("clicked-true")
+
+                    const span = this.querySelector('span');
+    
+                    // Ottieni il valore interno dello span
+                    const valore = span.textContent;
+                    
             
-                    if (mioArray[i] === "bomba") {
-                        alert(`Mi dispiace hai perso, il tuo punteggio ${contatore}`)
+                    if (valore != "bomba") {
+                        contatore++
+                        console.log(contatore)
+                        console.log(`È stata colorata la cella numero  ${mioArray[i]}`)
                     }
 
                     else{
-                        contatore += 1
-                        console.log(`È stata colorata la cella numero  ${mioArray[i]}`)
+                        alert(`Mi dispiace hai perso, il tuo punteggio ${contatore}`)
+                        contatore=0
+                        
                     }
-                   
                 }
             );
 
