@@ -141,12 +141,21 @@ function generateSquare() {
             newSpan.append(mioArray[i]);
             square.append(newSpan)
 
-
+            let contatore = 0
             // Associarel'evento allo square
             square.addEventListener("click",
                 function () {
                     this.classList.add("clicked-true")
-                    console.log(`È stata colorata la cella numero  ${mioArray[i]}`)
+            
+                    if (mioArray[i] === "bomba") {
+                        alert(`Mi dispiace hai perso, il tuo punteggio ${contatore}`)
+                    }
+
+                    else{
+                        contatore += 1
+                        console.log(`È stata colorata la cella numero  ${mioArray[i]}`)
+                    }
+                   
                 }
             );
 
